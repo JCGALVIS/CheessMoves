@@ -19,17 +19,7 @@ def obtener_nombre_pieza(simbolo):
     :param simbolo: la representacion de la pieza segun el enunciado
     :return: El nombre y color de la pieza
     """
-<<<<<<< HEAD
 
-    nombrePieza = ''
-
-    if(simbolo == 'p'):
-        nombrePieza = 'Peon blanco'
-    elif(simbolo == 'R'):
-        nombrePieza = 'Rey Negro'
-
-    return nombrePieza
-=======
     tipo = 'Negro'
     if simbolo.islower():
         tipo = 'blanco'
@@ -48,4 +38,3 @@ def obtener_nombre_pieza(simbolo):
         return 'Rey ' + tipo
     else:
         return 'No es una pieza'
->>>>>>> db01fb536b753498c71fd8395c7b4ecf23970bab

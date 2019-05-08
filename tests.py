@@ -10,7 +10,7 @@ class Test_movimientos(TestCase):
         self.assertEquals(espero, obtengo)
 
     def test_obtener_nombre_pieza(self):
-        dado = []
-        espero = ""
+        dado = 'p'
+        espero = 'Peon blanco'
         obtengo = obtener_nombre_pieza(dado)
         self.assertEquals(espero, obtengo)

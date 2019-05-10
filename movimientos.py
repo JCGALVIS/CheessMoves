@@ -63,18 +63,42 @@ def mover_torre(tablero, x_inicial, y_inicial, x_final, y_final):
     else:
         print('El movimiento no es valido')
 
+def mover_caballo(tablero, x_inicial, y_inicial, x_final, y_final):
+    if (0 < x_final <= 7) and (0 < y_final <= 7):
+        esCaballo = True
+        esCaballo = tablero[x_inicial][y_inicial] in 'kK'
+        restaEnX = -(x_inicial - x_final)
+        restaEnY = -(y_inicial - y_final)
+        posicionInicial = tablero[x_inicial][y_inicial].islower()
+        posicionFinal = tablero[x_final][y_final].islower()
+        resultadoMovimiento = tablero
+
+        if (esCaballo):
+            if (restaEnX == 2 and restaEnY == 1) or (restaEnX == 1 and restaEnY == 2):
+                if (posicionInicial == posicionFinal):
+                    print('Ficha amiga.')
+                else:
+                    resultadoMovimiento[x_final][y_final] = resultadoMovimiento[x_inicial][y_inicial]
+                    resultadoMovimiento[x_inicial][y_inicial] = ' '
+                    print(tablero_a_cadena(resultadoMovimiento))
+            else:
+                print('Movimiento invalido.')
+        else:
+            print('No es un caballo.')
+    else:
+        print('Posición final no valida.')
 
 if __name__ == '__main__':
     tablero = [
                 [['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
-                [' ', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+                ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
                 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                 ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
                 ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']],
-                0, 0, 4, 0
+                0, 1, -1, 8
                ]
 
-    mover_torre(tablero[0], tablero[1], tablero[2] , tablero[3], tablero[4])
+    mover_caballo(tablero[0], tablero[1], tablero[2] , tablero[3], tablero[4])

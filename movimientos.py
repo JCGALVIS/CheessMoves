@@ -76,29 +76,14 @@ def mover_caballo(tablero, x_inicial, y_inicial, x_final, y_final):
         if (esCaballo):
             if (restaEnX == 2 and restaEnY == 1) or (restaEnX == 1 and restaEnY == 2):
                 if (posicionInicial == posicionFinal):
-                    print('Ficha amiga.')
+                    return ('Ficha amiga.')
                 else:
                     resultadoMovimiento[x_final][y_final] = resultadoMovimiento[x_inicial][y_inicial]
                     resultadoMovimiento[x_inicial][y_inicial] = ' '
-                    print(tablero_a_cadena(resultadoMovimiento))
+                    return (tablero_a_cadena(resultadoMovimiento))
             else:
-                print('Movimiento invalido.')
+                return ('Movimiento invalido.')
         else:
-            print('No es un caballo.')
+            return ('No es un caballo.')
     else:
-        print('Posición final no valida.')
-
-if __name__ == '__main__':
-    tablero = [
-                [['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
-                ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-                ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
-                ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']],
-                0, 1, -1, 8
-               ]
-
-    mover_caballo(tablero[0], tablero[1], tablero[2] , tablero[3], tablero[4])
+        return ('Posición final no valida.')

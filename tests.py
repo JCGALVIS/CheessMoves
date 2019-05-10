@@ -73,3 +73,87 @@ class Test_movimientos(TestCase):
         espero = []
         obtengo = mover_torre(dado[0], dado[1], dado[2] , dado[3], dado[4])
         self.assertEquals(espero, obtengo)
+
+    def test_mover_caballo(self):
+        dado = [
+            [['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+             ['p', 'p', ' ', 'p', 'p', 'p', 'p', 'p'],
+             [' ', ' ', 'p', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+             ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']],
+            0, 1, -1, 8
+        ]
+        espero =  'Posición final no valida.'
+        obtengo = mover_caballo(dado[0], dado[1], dado[2] , dado[3], dado[4])
+        self.assertEquals(espero, obtengo)
+
+        dado = [
+            [['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+             ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+             ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']],
+            0, 0, 1, 3
+        ]
+        espero = 'No es un caballo.'
+        obtengo = mover_caballo(dado[0], dado[1], dado[2] , dado[3], dado[4])
+        self.assertEquals(espero, obtengo)
+
+        dado = [
+            [['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+             ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+             ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']],
+            0, 1, 3, 1
+        ]
+        espero =  'Movimiento es invalido.'
+        obtengo = mover_caballo(dado[0], dado[1], dado[2] , dado[3], dado[4])
+        self.assertEquals(espero, obtengo)
+
+        dado = [
+            [['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+             ['p', 'p', ' ', 'p', 'p', 'p', 'p', 'p'],
+             [' ', ' ', 'p', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+             ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']],
+            0, 1, 2, 2
+        ]
+        espero =  'Ficha amiga.'
+        obtengo = mover_caballo(dado[0], dado[1], dado[2] , dado[3], dado[4])
+        self.assertEquals(espero, obtengo)
+
+        dado = [
+            [['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+             ['p', 'p', ' ', 'p', 'p', 'p', 'p', 'p'],
+             [' ', ' ', 'P', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+             ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+             ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']],
+            0, 1, 2, 2
+        ]
+        espero =  ['t', 'k', 'a', 'q', 'r', 'a', 'k', 't'],
+        ['p', 'p', ' ', 'p', 'p', 'p', 'p', 'p'],
+        [' ', ' ', 'k', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+        ['T', 'K', 'A', 'R', 'Q', 'A', 'K', 'T']
+
+        obtengo = mover_caballo(dado[0], dado[1], dado[2] , dado[3], dado[4])
+        self.assertEquals(espero, obtengo)
